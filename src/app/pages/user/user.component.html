@@ -1,0 +1,346 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="image">
+        <img src="assets/img/damir-bosnjak.jpg" alt="...">
+      </div>
+      <div class="card-body" *ngFor="let restaurant of restaurantarr">
+        <div class="author">
+          <a href="#">
+            <img class="avatar border-gray" src="{{restaurant.image}}" alt="...">
+            <h5 class="title">{{restaurant.name}} !</h5>
+          </a>
+          <p class="description">
+          </p>
+        </div>
+        <p class="description text-center">
+          {{restaurant.accessed}} Visitors Interested
+          <br>
+        </p>
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="button-container">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-7 ml-auto">
+              <h5>Blocked Diners
+                <br>
+                <small> {{blocky}}</small>
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+              <h5>Recorded Visitors
+                <br>
+                <small>LIVE! {{visitor}}</small>
+              </h5>
+            </div>
+            <div class="col-lg-3 mr-auto">
+              <h5>Availability
+                <br>
+                <small>Work!</small>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">ACTIVITY STATUS RESTAURANTS</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled team-members">
+          <li>
+            <div class="row" *ngFor="let restaurant of restaurantarr">
+              <div class="col-md-auto col-auto">
+                <div class="avatar">
+                  <img src="{{restaurant.image}}" alt="Circle Image" class="img-circle img-no-padding ">
+                </div>
+              </div>
+              <div class="col-md-7 col-7">
+                {{restaurant.name}}
+                <br />
+                <span class="text-success">
+                  <small>{{(restaurant.available==="True")?"Available":"Not Availabe-Blocked" }}</small>
+                </span>
+              </div>
+              <div class="col-md-3 col-3 text-right">
+                <button class="btn btn-sm btn-outline-success btn-round btn-icon" (click)=block(restaurant)><i
+                    class="fa fa-envelope"></i></button>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="card card-user">
+      <div class="card-header">
+     
+        <h5 class="card-title">{{kylie}}</h5>
+      </div>
+      <div class="card-body">
+        <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+          <div class="row">
+            <div class="col-md-5 pr-1">
+              <div class="form-group">
+                <label>Restaurant Name</label>
+                <input type="text" class="form-control" placeholder="Restaurant" value="" name="name " #name="ngModel"
+                  [(ngModel)]=obj.name>
+              </div>
+            </div>
+            <div class="col-md-3 px-1">
+              <div class="form-group">
+                <label>Type</label>
+                <input type="text" class="form-control" placeholder="Type" name="type" #type="ngModel"
+                  [(ngModel)]=obj.type>
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Location</label>
+                <input type="email" class="form-control" placeholder="Location" name="location" #location="ngModel"
+                  [(ngModel)]=obj.location>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>Conatct</label>
+                <input type="text" name="contact" class="form-control" placeholder="Contact" #contact="ngModel"
+                  #name="ngModel" [(ngModel)]=obj.contact>
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>image</label>
+                <input type="text" class="form-control" name="image"placeholder="Image URL" value="" #image="ngModel"
+                  #name="ngModel" [(ngModel)]=obj.image>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Dish</label>
+                <input type="text" name="dishName" class="form-control" placeholder=""
+                  value="Paneer Cuisine,Chilly Chatka here..." #dishName="ngModel" [(ngModel)]=dishes[3].dishName>
+                  <input type="text" name="name" class="form-control" placeholder="Dish 1 Name" value=obj.name hidden
+                  value="Paneer Cuisine,Chilly Chatka here..." #name="ngModel" [(ngModel)]=dishes[0].name>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>Dish Image URL</label>
+                <input type="text" class="form-control" placeholder="pic.jpg" name="dishImage" value="picture.jpg" #dishImage="ngModel"
+                  [(ngModel)]=dishes[3].dishImage>
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>Cost</label>
+                <input type="number" name="cost " class="form-control" placeholder="Country" value="In rupees"
+                  #cost="ngModel" [(ngModel)]=dishes[3].cost>
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Suggestion</label>
+                <input type="text" name="suggestion" class="form-control" #suggestion="ngModel"
+                  [(ngModel)]=dishes[3].suggestion>
+              </div>
+            </div>
+          </div>
+         
+             
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Dish</label>
+                <input type="text" name="dishName" class="form-control" placeholder=""
+                  value="Paneer Cuisine,Chilly Chatka here..." #dishName1="ngModel" [(ngModel)]=dishes[2].dishName>
+               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>Dish Image URL</label>
+                <input type="text" class="form-control" placeholder="pic.jpg" name="dishImage" value="picture.jpg" #dishImage1="ngModel"
+                  [(ngModel)]=dishes[2].dishImage>
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>Cost</label>
+                <input type="number" name="cost " class="form-control" placeholder="Cost" value="In rupees"
+                  #cost1="ngModel" [(ngModel)]=dishes[2].cost>
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Suggestion</label>
+                <input type="text" name="suggestion" class="form-control" #suggestion1="ngModel"
+                  [(ngModel)]=dishes[2].suggestion>
+              </div>
+            </div>
+          </div>
+         
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Dish </label>
+                <input type="text" name="dishName" class="form-control" placeholder="Name"
+                  value="Paneer Cuisine,Chilly Chatka here..." #dishName2="ngModel" [(ngModel)]=dishes[1].dishName>
+                  <input type="text" name="name" class="form-control" placeholder="1" hidden
+                  value="(obj.name)" #name="ngModel" [(ngModel)]=dishes[2].name>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>Dish Image URL</label>
+                <input type="text" class="form-control" placeholder="pic.jpg" name="dishImage" value="picture.jpg" #dishImage2="ngModel"
+                  [(ngModel)]=dishes[1].dishImage>
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>Cost</label>
+                <input type="number" name="cost " class="form-control" placeholder="Cost" value="In rupees"
+                  #cost2="ngModel" [(ngModel)]=dishes[1].cost>
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Suggestion</label>
+                <input type="text" name="suggestion" class="form-control" #suggestion2="ngModel"
+                  [(ngModel)]=dishes[1].suggestion>
+              </div>
+            </div>
+          </div>
+         
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Dish</label>
+                <input type="text" name="dishName" class="form-control" placeholder=""
+                  value="Paneer Cuisine,Chilly Chatka here..." #dishName3="ngModel" [(ngModel)]=dishes[0].dishName>
+               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>Dish Image URL</label>
+                <input type="text" class="form-control" placeholder="pic.jpg" name="dishImage" value="picture.jpg" #dishImage3="ngModel"
+                  [(ngModel)]=dishes[0].dishImage>
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>Cost</label>
+                <input type="number" name="cost " class="form-control" placeholder="Country" value="In rupees"
+                  #cost3="ngModel" [(ngModel)]=dishes[0].cost>
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Suggestion</label>
+                <input type="text" name="suggestion" class="form-control" #suggestion3="ngModel"
+                  [(ngModel)]=dishes[0].suggestion>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>About Me</label>
+                <textarea
+                  class="form-control textarea"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round">ADD RESTAURANT</button>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    <div class="card card-user">
+      <div class="card-header">
+    
+    <h5 class="card-title">{{kim}}</h5>
+      <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onUpdate()" novalidate>
+        <div class="row">
+          <div class="col-md-5 pr-1">
+            <div class="form-group">
+              <label>ID</label>
+              <input type="number" class="form-control" placeholder="Restaurant" value="" name="number " #name="ngModel"
+                [(ngModel)]=obj2.id>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-5 pr-1">
+              <div class="form-group">
+                <label>Restaurant Name</label>
+                <input type="text" class="form-control" placeholder="Restaurant" value="" name="name " #name="ngModel"
+                  [(ngModel)]=obj2.name>
+              </div>
+            </div>
+            <div class="col-md-3 px-1">
+            <div class="form-group">
+              <label>Type</label>
+              <input type="text" class="form-control" placeholder="Type" name="type" #type="ngModel"
+                [(ngModel)]=obj2.type>
+            </div>
+          </div>
+          <div class="col-md-4 pl-1">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Location</label>
+              <input type="email" class="form-control" placeholder="Location" name="location" #location="ngModel"
+                [(ngModel)]=obj2.location>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>Contact</label>
+              <input type="text" name="contact" class="form-control" placeholder="Contact" #contact="ngModel"
+                #name="ngModel" [(ngModel)]=obj2.contact>
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>image</label>
+              <input type="text" class="form-control" name="image"placeholder="Image URL" value="" #image="ngModel"
+                #name="ngModel" [(ngModel)]=obj2.image>
+            </div>
+          </div>
+        </div>
+        
+       
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round">UPDATE RESTAURANT</button>
+          </div>
+        </div>
+      </form>
+        
+    </div>
+  
+  </div>
+  </div>
+</div>

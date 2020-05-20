@@ -1,0 +1,99 @@
+<!--style>
+  .container-fluid{
+ // background-image:url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBwYHBwoPBwcHBgoHBgcHCBAICRAWFREWFhUREx8YHSggGBolGxMTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NFQ0NFSsZFRkrNysrKzcrLSsrKysrKysrKysrKy0rKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAPkAywMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAgEH/8QAFRABAQAAAAAAAAAAAAAAAAAAABH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAwDAQACEQMRAD8A4aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANFgwaEGDQgwaEGDQgwaEGDQgwaEGDQgwaEGDQgwaEGDQgDR0iMGhBg0IMGhBg0IMGhBg0IMGhBg0IMGhBg0IMGhBg0INGjrFYNCDBrSCRQQSKCCRQQSKCCRTCDBQQSKCCRQQSKCCRQQbCNG4rIRoQZCNCDIRoQZCNCDIRoQZCNCDIRoQZCNCDIRoQZCNCDIRoQZBoQaNGmkihRg0Bg0BLWgMGgMGgMGgMGgMGgMGgMGiDBoQbCKhHXKphFQhkTCKhDImEVCGSJhFQhkiYRUIZEwioQyRMIqEMkTCKhDJEwioQyJhFQhkiYRUIZImEVCGSKhFwjtlqIhFwhkiIRcIZWIhFwhlIiEXCGSIhFwhkiIRcIZWIhFwhlIiEXCGSIhFwhkiIRcIZIiEXCGSIhFwhkioRcI9GG4iEXCGCIhFwhgiIRcIYIiEXCGCIhFwhgiIRcIYIiEXCGCIhFwhgiIRcIZIiEXCGSIhFwhkiIRcIZIuEXCPThuIhFwhgiIRcIYIiEXCLgiIRcIYIiEXCGCIhFwhgiIRcIYIiEXCGFiIRcIYSIhFwhhYiEXCGEiIRcIYWLhFwj04biI2KhDBEwio2GSIhFRsMkRCLhDJEQio2GSIhFwhgiIRcIZIiEXCGCIhFwhgiIRcIYIiEXCGCIhFwhgioRUI9GWomEVCGViYRUImUiYRUIuViYRUIZImEVCGSJhFQhkiYRUIZImEVCGSJhFQhkiYRcZDJEwioQyRMIqEMkVBo6KyEaAwaAwjQGDQGDQGDQGDQGDQGDQGDQGDQGDQH/2Q==");
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+  }
+</style-->
+
+<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <div class="navbar-toggle">
+        <button type="button" class="navbar-toggler" (click)="sidebarToggle()">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
+      <a class="navbar-brand" href="javascript:void(0)"> {{getTitle()}}</a>
+    </div>
+    <button class="navbar-toggler" type="button" (click)="collapse()"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+      <form>
+        <div class="input-group no-border">
+          <input type="text" value="" class="form-control" placeholder="Search..."  name="name" id="text">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <button (click)="search()"><i class="nc-icon nc-zoom-split"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn-magnify" href="http://localhost:4200">LOG OUT
+            <i class="nc-icon nc-layout-11"></i>
+            <p>
+              <span class="d-lg-none d-md-block">Stats</span>
+            </p>
+          </a>
+        </li>
+<!--
+        <li class="nav-item btn-rotate" ngbDropdown placement="bottom-left">
+          <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+            <i class="nc-icon nc-bell-55"></i>
+            <p>
+              <span class="d-lg-none d-md-block">To-Do Task</span>
+            </p>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right" *ngFor="let text of texts">
+            <a ngbDropdownItem href="javascript:void(0)">{{text}}</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-rotate" href="javascript:void(0)">
+            <i class="nc-icon nc-settings-gear-65"></i>
+            <p>
+              <span class="d-lg-none d-md-block">Account</span>
+            </p>
+          </a>
+        </-->
+      </ul>
+      <table>
+        <tbody *ngFor="let restaurant of restaurantarr">
+          <tr>
+            <td>
+                </td>
+            <td>
+              {{restaurant.name}} |
+            </td>
+            <td>
+              {{restaurant.type}} |
+            </td>
+            <td >
+              {{restaurant.contact}} |
+            </td>
+          
+          
+            <td>
+              {{restaurant.location}} |
+
+            </td>
+            <td>
+              {{restaurant.available}}
+            </td>
+            </tr>
+          <tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+</nav>

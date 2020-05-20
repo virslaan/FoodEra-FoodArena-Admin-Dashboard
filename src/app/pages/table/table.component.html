@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title"> Summary of Restaurants</h4>
+      </div>
+      <div class="card-body">
+        <div class="table">
+          <table class="table-body" >
+            <thead class=" text-warning">
+              <th>
+                ID
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th >
+                Contact
+              </th>
+              <th >
+                Location
+              </th>
+              <th >
+                Available
+              </th>
+            </thead>
+            <tbody *ngFor="let restaurant of restaurantarr">
+              <tr>
+                <td>
+                 #Food#{{restaurant.id}}
+                </td>
+                <td>
+                  {{restaurant.name}}
+                </td>
+                <td>
+                  {{restaurant.type}}
+                </td>
+                <td >
+                  {{restaurant.contact}}
+                </td>
+              
+              
+                <td>
+                  {{restaurant.location}}
+                </td>
+                <td>
+                  {{restaurant.available}}
+                </td>
+                </tr>
+              <tr>
+                
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-auto">
+    <div class="card card">
+      <div class="card">
+        <h4 class="card-title"> Summary Report of Orders</h4>
+        <p class="card-category"> All Statistics of Registered Restaurants</p>
+      </div>
+      <div class="card-body">
+        <div class="table" >
+          <table class="table-body">
+            <thead class=" text-primary">
+              <th>
+                Order ID
+              </th>
+              <th>
+                Customer
+              </th>
+              <th>
+                Restaurant
+              </th>
+              <th >
+                Location
+              </th>
+              <th >
+                Amount Paid
+              </th>
+            </thead>
+            <tbody *ngFor="let order of orders">
+              <tr>
+                <td>
+                  {{order.id}}  
+                  </td>
+                  <td>
+                    {{order.customer}}  
+                    </td>
+                    <td>
+                      {{order.name}}  
+                      </td>
+                      <td>
+                        {{order.location}}  
+                        </td>
+                        <td>
+                          {{order.bill}}  
+                          </td>
+                                     
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

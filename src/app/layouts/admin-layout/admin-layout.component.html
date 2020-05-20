@@ -1,0 +1,38 @@
+<head><title>FOOD ARENA</title></head>
+<div class="wrapper">
+    <div class="sidebar"  data-active-color="danger">
+        <sidebar-cmp></sidebar-cmp>
+    </div>
+    <div class="main-panel">
+        <navbar-cmp></navbar-cmp>
+        <div class="content">
+            <style>
+                .content{
+          
+  background-image: url("https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg");
+  
+  background-size: cover;
+                }
+                .sidebar{
+          
+          background-image: url("https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg");
+          background-color: #cccccc;
+          background-size: cover;
+                        }
+                        .main-panel{
+          
+          background-image: url("https://image.freepik.com/free-vector/transparent-glow-light-effect-black-background_3247-327.jpg");
+          background-color: rgba(0, 0, 0, 0.7);
+          background-size: cover;
+          backface-visibility: visible;
+          color:white;
+                        }
+                    
+            </style>
+            <router-outlet></router-outlet>
+        </div>
+   
+        <footer-cmp></footer-cmp>
+    </div>
+</div>
+<fixedplugin-cmp></fixedplugin-cmp>

@@ -1,0 +1,85 @@
+<div class="card">
+    <div class="col-md-8">
+        <div class="card card-user">
+      
+
+<div class="card-header" style="text-align:center">
+    Help Us Feed Them!
+</div>
+<div [formGroup]="myForm">
+    <div class="row">
+        <div class="col-md-8 pr-1 " style="text-align:center">
+            <div class="form-group">
+
+
+                <input type="text" formControlName="helper" class="form-control" placeholder="Enter helper"
+                    aria-label="helper" aria-describedby="addon-wrapping">
+                <span
+                    *ngIf="myForm.controls['helper'].invalid && (myForm.controls['helper'].dirty || myForm.controls['helper'].touched)"
+                    class="alert alert-danger">Helper is missing</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 pr-1">
+            <div class="form-group">
+
+
+                <input type="text" formControlName="location" class="form-control" placeholder="Enter location"
+                    aria-label="location" aria-describedby="addon-wrapping">
+                <span
+                    *ngIf="myForm.controls['location'].invalid && (myForm.controls['location'].dirty || myForm.controls['location'].touched)"
+                    class="alert alert-danger">Location is missing</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 pr-1">
+            <div class="form-group">
+
+<input type="text" formControlName="description" class="form-control" placeholder="Enter description"
+            aria-label="description" aria-describedby="addon-wrapping">
+        <span
+            *ngIf="myForm.controls['description'].invalid && (myForm.controls['description'].dirty || myForm.controls['description'].touched)"
+            class="alert alert-danger">Description is missing</span>
+    
+</div>
+</div>      
+</div>
+<div class="row">
+<div class="col-md-6 pr-1">
+<div class="form-group">
+
+
+<input type="text" formControlName="contact" class="form-control" placeholder="Enter contact"
+    aria-label="contact" aria-describedby="addon-wrapping">
+<span
+    *ngIf="myForm.controls['contact'].invalid && (myForm.controls['contact'].dirty || myForm.controls['contact'].touched)"
+    class="alert alert-danger">Contact is missing</span>
+</div>        </div></div>
+<div class="row">
+<div class="col-md-6 pr-1">
+<div class="form-group">
+
+
+<input type="text" formControlName="email" class="form-control" placeholder="Enter email" aria-label="email"
+aria-describedby="addon-wrapping">
+<span
+*ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)"
+class="alert alert-danger">Email is missing</span>
+</div></div></div>
+<div class="row">
+<div class="col-md-6 pr-1">
+<div class="form-group">
+
+
+<input type="text" formControlName="image_logo" class="form-control" placeholder="Enter image url"
+aria-label="image_logo" aria-describedby="addon-wrapping">
+<span
+*ngIf="myForm.controls['image_logo'].invalid && (myForm.controls['image_logo'].dirty || myForm.controls['image_logo'].touched)"
+class="alert alert-danger">Image is missing</span>
+</div></div></div>
+<button type="button" class="btn btn-success" [disabled]="myForm.invalid" (click)="addDonate()">Donate</button>
+
+</div>
